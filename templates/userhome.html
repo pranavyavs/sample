@@ -1,0 +1,10 @@
+<html>
+	<body>
+		{% for v in data %}
+		<h3>Welcome {{v.username}}</h3>
+		{% endfor %}
+		<ul>
+			<li><a href="{% url 'viewAllUsers' %}">View All Users</a></li>
+		</ul>
+	</body>
+</html>

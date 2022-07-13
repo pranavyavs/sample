@@ -1,0 +1,61 @@
+<html>
+<script src="/static/jquery.min.js"></script>
+<script>
+		$(document).ready(function(){
+						$("#country").change(function(){
+									var countryid=$("#country").val()
+									$.ajax({
+											url:"{% url 'getstate' %}",
+											data:{'countryid':countryid},
+											success:function(data){
+												$("#state").html(data)
+														}
+										})
+										})
+					     })
+</script>
+
+
+
+
+
+	<body>
+		<form method="post" action="{% url 'placeAddAction' %}">
+		{% csrf_token %}
+			<table>
+				<tr>
+					<td>country</td>
+					<td><select name="country" id="country">
+							<option value="">----select----</option>
+								{% for v in country %}
+							<option value="{{v.id}}">{{v.country}}</option>
+								{% endfor %}
+					    </select>
+					</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td><select name="state" id="state">
+						<option value="">---select---</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Place</td>
+					<td><input type="text" name="place"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Add"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+{% if messages %}
+	{% for msg in messages %}
+		<script>
+			alert('{{msg}}')
+		</script>
+	{% endfor %}
+{% endif %}
+</html>

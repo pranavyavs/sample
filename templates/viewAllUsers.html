@@ -1,0 +1,35 @@
+<html>
+	<body>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Dob</th>
+				<th>Country</th>
+				<th>Address</th>
+				<th>Phone</th>
+				<th>Username</th>
+			</tr>
+				{% for v in data %}
+			<tr>
+				<td>{{v.name}}</td>
+				<td>{{v.gender}}</td>
+				<td>{{v.dob}}</td>
+				<td>{{v.country}}</td>
+				<td>{{v.address}}</td>
+				<td>{{v.phone}}</td>			
+				<td>{{v.username}}</td>
+				<td><a href="{% url 'delete' v.id %}">Delete</a></td>
+				<td><a href="{% url 'edit' v.id %}">Edit</a></td>
+			</tr>
+				{% endfor %}
+		</table>
+	</body>
+ {% if messages %}
+	{% for msg in messages %}
+		<script>
+			alert('{{msg}}')
+		</script>
+	{% endfor %}
+ {% endif %}
+</html>

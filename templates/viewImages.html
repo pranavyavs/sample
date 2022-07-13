@@ -1,0 +1,18 @@
+<html>
+	<body>
+		<table>
+				
+			<tr>
+				<th>Name</th>
+				<th>File</th>
+				
+			</tr>
+				{% for v in data %}
+			<tr>
+				<td>{{v.name}}</td>
+				<td><img src = "{{v.file.url}}" height="100px" width="100px" alt="nopic" ></td>
+			</tr>
+				{% endfor %}
+		</table>
+	</body>
+</html>

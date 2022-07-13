@@ -1,0 +1,29 @@
+<html>
+	<body>
+		<form method="post" action="{% url 'imageUploadAction' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>File:</td>
+					<td><input type="file" name="file"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="upload"></td>
+				</tr>
+			</table>
+		</form>
+
+	</body>
+{% if messages %}
+	{% for msg in messages %}
+		<script>
+			alert('{{msg}}')
+		</script>
+	{% endfor %}
+{% endif %}
+</html>

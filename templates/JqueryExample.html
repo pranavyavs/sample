@@ -1,0 +1,50 @@
+<html>
+<script src="/static/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+					$("#p1").click(function(){
+									$(this).hide();
+								})
+					$(".p2").click(function(){
+									$(this).hide();
+								})
+					$("#p3").on({
+							mouseenter:function(){
+										$(this).css("background","green")
+									      },
+							mouseleave:function(){
+										$(this).css("background","red")
+									      },
+							dblclick:function(){
+										$(this).css("background","yellow")
+									    }
+						     })
+					$("#txt").focus(function(){
+									$("#txt").val('focus');
+								   })
+					$("#txt").blur(function(){
+									$("#txt").val('blur');
+								  })
+					
+					$("#p4").hover(function(){
+									$(this).css("color","green");
+								 },
+						      function(){
+									$(this).css("color","red");
+								}	  
+
+						)
+				     })
+</script>
+
+
+
+
+	<body>
+		<p id="p1">WELCOME TO PYTHON </p>
+		<p class="p2">WELCOME home</p>
+		<p id="p3">On example</p>
+		<input type="text" id="txt">
+		<p id="p4">Hover Example</p>
+	</body>
+</html>
